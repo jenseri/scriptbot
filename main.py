@@ -25,7 +25,7 @@ scripts = dict(zip(scripts_names, scripts_content)) #zip script names and script
 
 client = discord.Client()
 
-help_message = 'To use, type "!script MOVIENAME". The following movies are available: {}'.format(scripts_names)
+help_message = 'To use, type "!shrek MOVIENAME". The following movies are available: {}'.format(scripts_names)
 error_message = 'That command is invalid. Please type "!script help" for a list of titles available.'
 send_error = 'User is not able to recieve messages from me'
 
@@ -40,8 +40,8 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content.startswith('!script'):
-        command = message.content[len('!script'):].strip()
+    if message.content.startswith('!shrek'):
+        command = message.content[len('!shrek'):].strip()
         if command.lower() == 'help':
             await client.send_message(message.channel, help_message)
         elif command in scripts_names:
